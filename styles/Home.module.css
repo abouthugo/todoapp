@@ -1,16 +1,14 @@
 .container {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
+  @apply relative min-h-screen flex flex-col;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  @apply min-h-screen flex items-center justify-center space-x-5
+.content {
+  @apply relative min-h-screen flex;
+}
+
+.main {  
+  @apply min-h-screen flex-1 items-center justify-start space-x-5 p-5;
 }
 
 .footer {

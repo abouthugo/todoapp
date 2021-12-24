@@ -4,11 +4,13 @@
 
 html,
 body {
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    @apply bg-green-400;
+    @apply bg-white;
 }
 
 a {
@@ -20,9 +22,13 @@ a {
   box-sizing: border-box;
 }
 
+/* button {
+  cursor: pointer; */
+/* } */
 
 @layer base {
   h1 {
     @apply text-4xl font-bold;
   }
+
 }
