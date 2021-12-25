@@ -28,7 +28,15 @@ a {
 
 @layer base {
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-2xl font-bold;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input.font-bold::placeholder {
+    @apply font-normal
   }
 
 }

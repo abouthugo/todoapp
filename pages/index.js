@@ -4,15 +4,22 @@ import TodoList from "../components/TodoList";
 import styles from "../styles/Home.module.css";
 
 const dummyList = [
-  { id: 1, content: "Buy a new microphone" },
-  { id: 2, content: "Clean the house" },
-  { id: 3, content: "Practice some guitar" },
+  { id: 1, name: "Buy a new microphone" },
+  { id: 2, name: "Clean the house" },
+  { id: 3, name: "Practice some guitar" },
+  { id: 4, name: "Create new content" },
+  { id: 5, name: "Go to sleep early" },
 ];
 
 export default function Home() {
   const [sideBarOn, setSideBar] = useState(true);
+  const [taskList, settaskList] = useState(dummyList);
   const toggleSidebar = () => {
     setSideBar(!sideBarOn);
+  };
+
+  const handleNewTask = (task) => {
+    settaskList([...taskList, task]);
   };
 
   return (
@@ -59,7 +66,7 @@ export default function Home() {
             Sidebar
           </aside>
           <main className={styles.main}>
-            <TodoList todos={dummyList} />
+            <TodoList todos={taskList} handleNewTask={handleNewTask} />
           </main>
         </div>
       </div>
