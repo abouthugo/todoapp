@@ -70,7 +70,7 @@ function AddTask({ isOpen, toggleIsOpen, handleNewTask }) {
 
   const onKeyDown = (e) => {
     console.log(e.keyCode);
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && task.name.length) {
       handleOnNewTask();
     } else if (e.key === "Escape") {
       settask(defaultTask);
@@ -103,8 +103,9 @@ function AddTask({ isOpen, toggleIsOpen, handleNewTask }) {
         <div>
           <button
             role="button"
-            className="w-auto self-start rounded-md px-3 font-medium py-1 mt-2 mr-4 bg-neutral-800 text-white"
+            className="w-auto self-start rounded-md px-3 font-medium py-1 mt-2 mr-4 bg-neutral-800 text-white disabled:cursor-not-allowed disabled:bg-neutral-400"
             onClick={handleOnNewTask}
+            disabled={!task.name.length}
           >
             Add Task
           </button>
