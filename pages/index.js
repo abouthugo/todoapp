@@ -32,13 +32,15 @@ export default function Home() {
         </Head>
 
         <nav className="bg-neutral-800 py-2 px-6 text-white flex justify-between">
-          <div className="">
+          <div className="flex ">
             <button
               type="button"
-              className="hover:cursor-pointer"
+              className="w-9 h-7 hover:cursor-pointer hover:bg-neutral-700 box-border grid justify-center items-center py-1"
               onClick={() => toggleSidebar()}
             >
-              Show menu
+              <div className="w-5 h-px bg-white"></div>
+              <div className="w-5 h-px bg-white"></div>
+              <div className="w-5 h-px bg-white"></div>
             </button>
             <input
               type="text"
@@ -50,7 +52,7 @@ export default function Home() {
           <span>
             <button
               type="button"
-              className="hover:bg-neutral-700 text-lg px-3 hover:cursor-pointer"
+              className="hover:bg-neutral-700 text-lg px-3 hover:cursor-pointer h-7 box-border"
             >
               +
             </button>
@@ -59,7 +61,7 @@ export default function Home() {
 
         <div className={styles.content}>
           <aside
-            className={`bg-neutral-50 text-zinc-500 w-64 pl-6 ${
+            className={`bg-neutral-50 text-zinc-500 w-64 pl-6 transition-transform ease-in-out duration-200 ${
               sideBarOn ? "" : "-ml-64"
             }`}
           >
