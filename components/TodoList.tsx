@@ -29,7 +29,7 @@ export default function TodoList({ todos, handleNewTask }) {
       <h1 className="border-b-2 mb-6">Inbox</h1>
       <ul className="max-w-2x w-full grid gap-y-4 mx-auto mb-6">
         {todos.map((todo) => (
-          <TodoItem todo={todo} />
+          <TodoItem todo={todo} key="TodoItemList" />
         ))}
       </ul>
       <AddTask
