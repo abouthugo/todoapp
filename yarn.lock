@@ -214,10 +214,10 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
-"@types/node@*":
-  "integrity" "sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.4.tgz"
-  "version" "17.0.4"
+"@types/node@*", "@types/node@^17.0.6":
+  "integrity" "sha512-+XBAjfZmmivILUzO0HwBJoYkAyyySSLg5KCGBDFLomJo0sV6szvVLAf4ANZZ0pfWzgEds5KmGLG9D5hfEqOhaA=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.6.tgz"
+  "version" "17.0.6"
 
 "@types/parse-json@^4.0.0":
   "integrity" "sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA=="
@@ -239,7 +239,7 @@
     "hoist-non-react-statics" "^3.3.0"
     "redux" "^4.0.0"
 
-"@types/react@*":
+"@types/react@*", "@types/react@^17.0.38":
   "integrity" "sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.38.tgz"
   "version" "17.0.38"
@@ -252,6 +252,11 @@
   "integrity" "sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew=="
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
+
+"@types/uuid@^8.3.3":
+  "integrity" "sha512-0LbEEx1zxrYB3pgpd1M5lEhLcXjKJnYghvhTRgaBeUivLHMDM1TzF3IJ6hXU2+8uA4Xz+5BA63mtZo5DjVT8iA=="
+  "resolved" "https://registry.npmjs.org/@types/uuid/-/uuid-8.3.3.tgz"
+  "version" "8.3.3"
 
 "@typescript-eslint/parser@^5.0.0":
   "integrity" "sha512-Gleacp/ZhRtJRYs5/T8KQR3pAQjQI89Dn/k+OzyCKOsLiZH2/Vh60cFBTnFsHNI6WAD+lNUo/xGZ4NeA5u0Ipw=="
@@ -3204,6 +3209,11 @@
     "is-typed-array" "^1.1.3"
     "safe-buffer" "^5.1.2"
     "which-typed-array" "^1.1.2"
+
+"uuid@^8.3.2":
+  "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
+  "version" "8.3.2"
 
 "v8-compile-cache@^2.0.3":
   "integrity" "sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA=="
