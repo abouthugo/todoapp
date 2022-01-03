@@ -3,6 +3,7 @@ import Head from "next/head";
 import TodoList from "../components/TodoList";
 import NoTasksSVG from "../components/NoTasksSVG";
 import styles from "../styles/Home.module.css";
+import AddTask from "../components/AddTask";
 
 // Initial data.. delete later
 const dummyList: Task[] = [
@@ -42,9 +43,9 @@ const dummyList: Task[] = [
 
 export default function Home() {
   // Tracks the state of the sidebar when user clicks icon
-  const [sideBarOn, setSideBar] = useState(true);
+  const [sideBarOn, setSideBar] = useState(false);
   // Our database of tasks
-  const [taskList, settaskList] = useState(dummyList);
+  const [taskList, setTaskList] = useState(dummyList);
 
   // Listener for when user clicks hamburger icon
   const toggleSidebar = () => {
@@ -53,7 +54,7 @@ export default function Home() {
 
   // Function that handles new tasks additions. It gets passed down as a prop to the Task List component
   const handleNewTask = (task: Task) => {
-    settaskList([...taskList, task]);
+    setTaskList([...taskList, task]);
   };
 
   return (
@@ -102,7 +103,10 @@ export default function Home() {
             Sidebar
           </aside>
           <main className={styles.main}>
-            <TodoList todos={taskList} handleNewTask={handleNewTask} />
+            {/* TODO: Here we need to apply a different title depending on the sidebar */}
+            <h1 className="border-b-2 mb-6">Inbox</h1>
+            <TodoList todos={taskList} />
+            <AddTask handleNewTask={handleNewTask} />
             {!taskList.length && <NoTasksSVG />}
           </main>
         </div>
