@@ -66,6 +66,10 @@ const AddTask: VFC<ATFProps> = function AddTask({ handleNewTask }) {
     inputRef.current.focus();
   };
 
+  const handleOnPrioritySet = (n: number) => {
+    setTask({ ...task, priority: n });
+  };
+
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && task.name.length) {
       handleOnNewTask();
@@ -104,8 +108,15 @@ const AddTask: VFC<ATFProps> = function AddTask({ handleNewTask }) {
             rows={3}
           />
           <div className="relative flex justify-end">
-            <FlagButton isActive={dropdownActive} onClick={toggleEdit} />
-            {dropdownActive && <PriorityDropDown active={dropdownActive} />}
+            <FlagButton
+              isActive={dropdownActive}
+              onClick={toggleEdit}
+              priority={task.priority}
+            />
+            <PriorityDropDown
+              handleOnClick={handleOnPrioritySet}
+              active={dropdownActive}
+            />
           </div>
         </div>
         <div>

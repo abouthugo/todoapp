@@ -2,18 +2,23 @@ import React, { VFC } from "react";
 import getColorFromPriority from "../lib/priorityColor";
 
 const PriorityDropDown: VFC<PriorityDropDownProps> = function PriorityDropDown({
+  handleOnClick,
   active,
 }) {
-  if (!active) return null;
   return (
-    <div className="absolute -top-3 -right-6 w-52 border-2 border-neutral-200 bg-white rounded-md shadow-lg mt-10 border-box max-w-52">
-      <ul className="">
+    <div
+      className={`-z-1 absolute -top-3 -right-6 w-52 border-2 border-neutral-200 bg-white rounded-md shadow-lg mt-10 border-box max-w-52 ${
+        !active && "hidden"
+      }`}
+    >
+      <ul>
         {new Array(4).fill(1).map((v, i) => {
           return (
             <li
               role="button"
               className="flex p-1 hover:bg-neutral-100 cursor-pointer"
               key={`priority-control=${i + 1}`}
+              onClick={() => handleOnClick(i + 1)}
             >
               <FlagIcon color={getColorFromPriority(i + 1)} />
               <p className="pl-2 text-sm">Priority {i + 1}</p>
@@ -59,5 +64,6 @@ const PriorityDropDown: VFC<PriorityDropDownProps> = function PriorityDropDown({
 
 interface PriorityDropDownProps {
   active: boolean;
+  handleOnClick: (n: number) => void;
 }
 export default PriorityDropDown;

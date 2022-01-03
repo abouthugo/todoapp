@@ -5,47 +5,11 @@ import NoTasksSVG from "../components/NoTasksSVG";
 import styles from "../styles/Home.module.css";
 import AddTask from "../components/AddTask";
 
-// Initial data.. delete later
-const dummyList: Task[] = [
-  {
-    id: "1",
-    name: "Buy a new microphone",
-    description:
-      "The microphone that I currently have is good but I need something that can pick up my voice nicely. I also want to try the stuff independent singers are using for the records.",
-    priority: 4,
-    completed: false,
-  },
-  {
-    id: "2",
-    name: "Clean the house",
-    priority: 1,
-    completed: false,
-  },
-  {
-    id: "3",
-    name: "Practice some guitar",
-    priority: 3,
-    completed: false,
-  },
-  {
-    id: "4",
-    name: "Create new content",
-    priority: 2,
-    completed: false,
-  },
-  {
-    id: "5",
-    name: "Go to sleep early",
-    priority: 1,
-    completed: false,
-  },
-];
-
 export default function Home() {
   // Tracks the state of the sidebar when user clicks icon
   const [sideBarOn, setSideBar] = useState(false);
   // Our database of tasks
-  const [taskList, setTaskList] = useState(dummyList);
+  const [taskList, setTaskList] = useState([]);
 
   // Listener for when user clicks hamburger icon
   const toggleSidebar = () => {

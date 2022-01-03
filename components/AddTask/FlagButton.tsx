@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, VFC } from "react";
+import getColorFromPriority from "../lib/priorityColor";
 
 const FlagButton: VFC<FlagButtonProps> = function FlagButton({
   isActive,
+  priority,
   onClick,
 }) {
   // This will be used to handle clicks outside
@@ -21,8 +23,11 @@ const FlagButton: VFC<FlagButtonProps> = function FlagButton({
     };
   });
 
-  const stroke = isActive ? "stroke-neutral-500" : "stroke-neutral-200";
-  const bg = isActive ? "bg-neutral-200" : "";
+  const color = getColorFromPriority(priority);
+  const stroke = `stroke-${color}-500`;
+  const fill = color === "neutral" ? "" : `fill-${color}-500`;
+
+  const bg = isActive ? "bg-slate-100" : "";
 
   return (
     <div role="button" onClick={onClick} ref={ref}>
@@ -35,7 +40,7 @@ const FlagButton: VFC<FlagButtonProps> = function FlagButton({
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`cursor-pointer rounded-sm ${stroke} ${bg} hover:stroke-neutral-500 hover:bg-neutral-200`}
+        className={`cursor-pointer rounded-sm ${stroke} ${bg} ${fill} hover:stroke-${color}-500 hover:bg-slate-100`}
       >
         <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
         <line x1="4" y1="22" x2="4" y2="15" />
@@ -46,6 +51,7 @@ const FlagButton: VFC<FlagButtonProps> = function FlagButton({
 
 interface FlagButtonProps {
   isActive: boolean;
+  priority: number;
   onClick: () => void;
 }
 
