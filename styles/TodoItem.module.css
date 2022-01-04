@@ -1,0 +1,15 @@
+.card-trigger .hover-target {
+    @apply invisible;
+}
+
+.card-trigger:hover .hover-target {
+    @apply visible;
+}
+
+.card-trigger {
+  @apply rounded-lg border-neutral-200 border-2 shadow-sm bg-white;   
+}
+
+.hover-target {
+    @apply absolute right-2;
+}

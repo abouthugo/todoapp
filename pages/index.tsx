@@ -9,7 +9,7 @@ export default function Home() {
   // Tracks the state of the sidebar when user clicks icon
   const [sideBarOn, setSideBar] = useState(false);
   // Our database of tasks
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList]: [Task[], Function] = useState([]);
 
   // Listener for when user clicks hamburger icon
   const toggleSidebar = () => {
@@ -19,6 +19,21 @@ export default function Home() {
   // Function that handles new tasks additions. It gets passed down as a prop to the Task List component
   const handleNewTask = (task: Task) => {
     setTaskList([...taskList, task]);
+  };
+
+  /**
+   * Function responsible for updating a task when it has been edited
+   * @param task
+   */
+  const onTaskChange = (task: Task) => {
+    const mapNewList = (t: Task) => {
+      if (t.id === task.id) {
+        return task;
+      }
+      return t;
+    };
+
+    setTaskList(taskList.map(mapNewList));
   };
 
   return (
@@ -69,7 +84,7 @@ export default function Home() {
           <main className={styles.main}>
             {/* TODO: Here we need to apply a different title depending on the sidebar */}
             <h1 className="border-b-2 mb-6">Inbox</h1>
-            <TodoList todos={taskList} />
+            <TodoList todos={taskList} onTaskChange={onTaskChange} />
             <AddTask handleNewTask={handleNewTask} />
             {!taskList.length && <NoTasksSVG />}
           </main>
