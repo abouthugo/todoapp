@@ -1,7 +1,12 @@
 import "../styles/globals.css";
+import { ActiveFormProvider } from "../context/ActiveFormsContext";
 
 function MyApp({ Component, pageProps }) {
-  return <Component className="dark" {...pageProps} />;
+  return (
+    <ActiveFormProvider>
+      <Component className="dark" {...pageProps} />
+    </ActiveFormProvider>
+  );
 }
 
 export default MyApp;

@@ -2,12 +2,20 @@ import getColorFromPriority from "../lib/priorityColor";
 import styles from "../../styles/TodoItem.module.css";
 import { useState, FC } from "react";
 import TaskForm from "../AddTask/TaskForm";
+import { useActiveForm } from "../../context/ActiveFormsContext";
 
 const TodoItem: FC<TodoProps> = function TodoItem({ todo, onTaskChange }) {
+  const { editNode, setEditNode } = useActiveForm();
   const [isEditing, setIsEditing] = useState(false);
 
-  const toggleEditMode = () => {
-    setIsEditing(!isEditing);
+  const openEditMode = () => {
+    setEditNode(todo.id);
+    setIsEditing(true);
+  };
+
+  const closeEditNode = () => {
+    setEditNode(null);
+    setIsEditing(false);
   };
 
   // Get the color of the round circle according to the priority of the task
@@ -18,14 +26,14 @@ const TodoItem: FC<TodoProps> = function TodoItem({ todo, onTaskChange }) {
 
   const handleSave = (task: Task) => {
     onTaskChange(task);
-    toggleEditMode();
+    closeEditNode();
   };
 
-  if (isEditing) {
+  if (isEditing && editNode === todo.id) {
     return (
       <TaskForm
         handleOnSubmit={handleSave}
-        handleOnCancel={toggleEditMode}
+        handleOnCancel={closeEditNode}
         buttonLabel="Save"
         initialTask={todo}
       />
@@ -48,7 +56,7 @@ const TodoItem: FC<TodoProps> = function TodoItem({ todo, onTaskChange }) {
           )}
         </div>
         <div className={styles["hover-target"]}>
-          <EditIcon onClick={toggleEditMode} />
+          <EditIcon onClick={openEditMode} />
         </div>
       </div>
     </li>
