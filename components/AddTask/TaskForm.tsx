@@ -78,7 +78,12 @@ const TaskForm: VFC<TaskFormProps> = function TaskForm({
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && task.name.length) {
+    // When user press "ENTER" in the task name input we want to submit the form
+    if (
+      e.key === "Enter" &&
+      task.name.length &&
+      inputRef.current === e.target
+    ) {
       submitHandler();
     } else if (e.key === "Escape") {
       resetTask();
